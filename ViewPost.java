@@ -45,10 +45,15 @@ public class ViewPost extends AppCompatActivity {
         workoutDesc.setText(getIntent().getStringExtra("postDesc"));
 
         displayLikes = findViewById(R.id.post_likes);
-        displayLikes.setText(getIntent().getStringExtra("postLikes"));
+        numLikes = Integer.valueOf(getIntent().getStringExtra("postLikes"));
+        displayLikes.setText(Integer.toString(numLikes));
+
+        
 
         numComments = findViewById(R.id.num_comments);
         numComments.setText(getIntent().getStringExtra("numComments"));
+
+
     }
 
     public void increment(View view) {
@@ -104,6 +109,5 @@ public class ViewPost extends AppCompatActivity {
                 break;
         }
     }
-
 
 }
