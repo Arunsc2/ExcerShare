@@ -77,6 +77,25 @@ public class Feeds {
     public ArrayList<Post> getMentalHealthFeed() {
         return mentalHealthFeed;
     }
+    
+    public int addComment(String name, String user, String description, String commentUser, String comment) {
+        Comment c = new Comment(comment, commentUser);
+        for(Post p : feed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                p.addComment(c);
+                return 0;
+            }
+        }
+
+        for(Post p : mentalHealthFeed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                p.addComment(c);
+                return 0;
+            }
+        }
+
+        return -1;
+    }
 
     public void generateMyPosts() {
         ArrayList<Post> temp = new ArrayList<Post>();
@@ -145,7 +164,7 @@ public class Feeds {
     public ArrayList<Post> getSavedPosts() {
         return savedPosts;
     }
-    
+
     public int saveThisPost(String name, String user, String description) {
         for(Post p : feed) {
             if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
@@ -160,6 +179,8 @@ public class Feeds {
                 return 0;
             }
         }
+        
+        return -1;
     }
 
 
