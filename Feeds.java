@@ -192,6 +192,10 @@ public class Feeds {
         Post post7 = new Post("Chest Day", user7, chests, new ArrayList<Comment>(), 2);
         Post post9 = new Post("Shoulder Day", user6, shoulders, new ArrayList<Comment>(), 5);
         Post post10 = new Post("Arm Day", user6, arms, new ArrayList<Comment>(), 3);
+        
+        post3.save();
+        post7.save();
+        post1.save();
 
         post1.addComment(new Comment("Woah that looks like a great workout", user2));
         post4.addComment(new Comment("Make sure you use correct form!", user5));
