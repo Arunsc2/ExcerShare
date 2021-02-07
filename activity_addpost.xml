@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPost"
+    android:orientation = "vertical"
+    android:background="#1F1F1F">
+    <TableLayout
+        android:layout_width="1050px"
+        android:layout_height="1705px"
+        android:layout_marginTop = "20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/my_shape_file">
+        <LinearLayout
+            android:layout_width="352dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+            <Button
+                android:layout_width="182dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/dark_gold"
+                android:onClick="postWorkout"
+                android:text="TO PHYSICAL FEED"
+                android:textColor="@color/light_gold">
+
+            </Button>
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_width="182dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/dark_gold"
+                android:onClick="postMentalHealth"
+                android:text="TO MENTAL FEED"
+                android:textColor="@color/light_gold">
+
+            </Button>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:hint = "Name"
+            android:textStyle="bold"
+            android:textSize="120px"
+            android:textColor = "#000000"
+            android:imeOptions="actionDone"
+            android:singleLine="true">
+
+        </EditText>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="78px"
+            android:text = ""
+            android:textSize = "56px"
+            android:textColor = "#222222">
+
+        </TextView>
+        <EditText
+            android:id="@+id/exercises"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:gravity="top|left"
+            android:hint="- type\n- exercises\n- here">
+
+        </EditText>
+
+
+    </TableLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginTop="10px"
+        app:contentInsetStart="2dp"
+        app:contentInsetEnd="2dp"
+        android:background="#8D7223">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageButton
+                android:id="@+id/workoutFeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#CEB888"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home_icon">
+
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/mentalHealthFeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/brain_icon"
+                android:backgroundTint="#CEB888">
+
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/addpost"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/post_icon"
+                android:backgroundTint="#CEB888">
+
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/savedposts"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/saved_icon"
+                android:backgroundTint="#CEB888">
+
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile_icon"
+                android:backgroundTint="#CEB888">
+
+            </ImageButton>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>
