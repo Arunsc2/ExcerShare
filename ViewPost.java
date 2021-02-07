@@ -1,5 +1,7 @@
 package com.example.exershare;
 
+package com.example.exershare;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,6 +19,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class ViewPost extends AppCompatActivity {
 
     static boolean alreadyLiked = false;
@@ -28,6 +33,11 @@ public class ViewPost extends AppCompatActivity {
     TextView displayLikes;
     ImageView likeButton;
     TextView numComments;
+    TextView comments;
+
+    String name;
+    String username;
+    String description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +46,39 @@ public class ViewPost extends AppCompatActivity {
         getSupportActionBar().hide();
 
         postTitle = findViewById(R.id.post_name);
-        postTitle.setText(getIntent().getStringExtra("postTitle"));
+        name = getIntent().getStringExtra("postTitle");
+        postTitle.setText(name);
 
         postAuthor = findViewById(R.id.post_user);
-        postAuthor.setText(getIntent().getStringExtra("postUser"));
+        username = getIntent().getStringExtra("postUser");
+        postAuthor.setText(username);
 
         workoutDesc = findViewById(R.id.workout_text);
-        workoutDesc.setText(getIntent().getStringExtra("postDesc"));
+        description = getIntent().getStringExtra("postDesc");
+        workoutDesc.setText(description);
 
         displayLikes = findViewById(R.id.post_likes);
         numLikes = Integer.valueOf(getIntent().getStringExtra("postLikes"));
         displayLikes.setText(Integer.toString(numLikes));
 
-        
-
         numComments = findViewById(R.id.num_comments);
         numComments.setText(getIntent().getStringExtra("numComments"));
 
+        ArrayList<String> postComments = new ArrayList<>();
+       
 
+        for(int i=0; i < postComments.size(); i++) {
+            postComments.set(i, getIntent().getStringExtra("comments" + i));
+        }
+        
+        String all = "";
+        
+        for(String s : postComments) {
+            all += s + "\n";
+        }
+        
+        comments = findViewById(R.id.comments);
+        comments.setText(all);
     }
 
     public void increment(View view) {
@@ -64,6 +89,8 @@ public class ViewPost extends AppCompatActivity {
             numLikes++;
             displayLikes.setText(Integer.toString(numLikes));
             alreadyLiked = true;
+
+            WorkoutFeed.feedManager.likePost(name, username, description, true);
         }
         else {
             displayLikes = findViewById(R.id.post_likes);
@@ -74,6 +101,7 @@ public class ViewPost extends AppCompatActivity {
 
             alreadyLiked = false;
 
+            WorkoutFeed.feedManager.likePost(name, username, description, false);
 
         }
     }
@@ -109,5 +137,6 @@ public class ViewPost extends AppCompatActivity {
                 break;
         }
     }
+
 
 }
