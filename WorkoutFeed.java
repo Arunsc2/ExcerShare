@@ -50,6 +50,12 @@ public class WorkoutFeed extends AppCompatActivity {
                     intent1.putExtra("postLikes", p.getLikes());
                     intent1.putExtra("numComments", p.getComments().size());
 
+                    ArrayList<Comment> comments = p.getComments();
+
+                    for(int i=0; i < comments.size(); i++) {
+                        intent1.putExtra("comment" + i, comments.get(i).getName() + ": " + comments.get(i).getComment());
+                    }
+
                     startActivity(intent1);
                     finish();
                 }
