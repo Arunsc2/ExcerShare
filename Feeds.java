@@ -7,7 +7,7 @@ import java.util.Map;
 public class Feeds {
     private static ArrayList<Post> feed;
 
-    private static ArrayList<MentalHealthPost> mentalHealthFeed;
+    private static ArrayList<Post> mentalHealthFeed;
 
     private static ArrayList<Object> savedPosts;
 
@@ -37,7 +37,7 @@ public class Feeds {
             }
         }
 
-        for(MentalHealthPost p : mentalHealthFeed) {
+        for(Post p : mentalHealthFeed) {
             if(p.isSaved()) {
                 sPosts.add(p);
             }
@@ -65,13 +65,17 @@ public class Feeds {
         generateMyPosts();
     }
 
-    public void addMentalHealthPostToFeed(MentalHealthPost post) {
+    public void addMentalHealthPostToFeed(Post post) {
         mentalHealthFeed.add(post);
         generateMyPosts();
     }
 
     public void savePost(Object post) {
         savedPosts.add(post);
+    }
+    
+    public ArrayList<Post> getMentalHealthFeed() {
+        return mentalHealthFeed;
     }
 
     public void generateMyPosts() {
@@ -84,7 +88,7 @@ public class Feeds {
             }
         }
 
-        for(MentalHealthPost p : mentalHealthFeed) {
+        for(Post p : mentalHealthFeed) {
             if(p.getUser().equals("sergio_he")) {
                 temp.add(p);
                 totalLikes += p.getLikes();
@@ -111,7 +115,7 @@ public class Feeds {
             }
         }
 
-        for(MentalHealthPost p : mentalHealthFeed) {
+        for(Post p : mentalHealthFeed) {
             if(p.getUser().equals(user)) {
                 likes += p.getLikes();
             }
@@ -129,7 +133,7 @@ public class Feeds {
             }
         }
 
-        for(MentalHealthPost p : mentalHealthFeed) {
+        for(Post p : mentalHealthFeed) {
             if(p.getUser().equals(user)) {
                 userPost.add(p);
             }
@@ -155,24 +159,14 @@ public class Feeds {
         String mentalHealth4 = "Vrikshasana";
         String mentalHealth5 = "Balasana";
         String mentalHealth6 = "Adho mukha svanasana";
+        
+        String mWorkout1 = mentalHealth1 + "\n" + mentalHealth3;
+        String mWorkout2 = mentalHealth2 + "\n" + mentalHealth4;
+        String mWorkout3 = mentalHealth3 + "\n" + mentalHealth5;
+        String mWorkout4 = mentalHealth4  + "\n" + mentalHealth6;
+        String mWorkout5 = mentalHealth5 + "\n" + mentalHealth4;
 
-        ArrayList<String> mWorkout1 = new ArrayList<>();
-        ArrayList<String> mWorkout2 = new ArrayList<>();
-        ArrayList<String> mWorkout3 = new ArrayList<>();
-        ArrayList<String> mWorkout4 = new ArrayList<>();
-        mWorkout1.add(mentalHealth1);
-        mWorkout1.add(mentalHealth5);
-        mWorkout1.add(mentalHealth4);
-        mWorkout2.add(mentalHealth3);
-        mWorkout2.add(mentalHealth2);
-        mWorkout2.add(mentalHealth1);
-        mWorkout3.add(mentalHealth6);
-        mWorkout3.add(mentalHealth1);
-        mWorkout3.add(mentalHealth2);
-        mWorkout4.add(mentalHealth2);
-        mWorkout4.add(mentalHealth5);
-        mWorkout4.add(mentalHealth4);
-
+        
         String user0 = "sergio_he";
         String user1 = "Wesley62";
         String user2 = "Ryan_M";
@@ -209,12 +203,20 @@ public class Feeds {
         addPostToFeed(post10);
 
 
-        MentalHealthPost mPost1 = new MentalHealthPost(user7, "Soothing meditation", mWorkout1, new ArrayList<Comment>(), "I was very relaxed after this.", 3);
-        MentalHealthPost mPost2 = new MentalHealthPost(user4, "Morning Sunrise", mWorkout2, new ArrayList<Comment>(), "This is great for a morning workout!", 1);
-        MentalHealthPost mPost3 = new MentalHealthPost(user5, "Uplifting", mWorkout3, new ArrayList<Comment>(), "I could feel my stress melt away.....", 2);
-        MentalHealthPost mPost4 = new MentalHealthPost(user8, "Beachside Yoga", mWorkout2, new ArrayList<Comment>(), "Playing relaxing wave sounds really works well with this!", 0);
-        MentalHealthPost mPost5 = new MentalHealthPost(user0, "Hawaiian Yoga ", mWorkout4, new ArrayList<Comment>(), "You need to try!", 5);
+//        MentalHealthPost mPost1 = new MentalHealthPost(user7, "Soothing meditation", mWorkout1, new ArrayList<Comment>(), "I was very relaxed after this.", 3);
+//        MentalHealthPost mPost2 = new MentalHealthPost(user4, "Morning Sunrise", mWorkout2, new ArrayList<Comment>(), "This is great for a morning workout!", 1);
+//        MentalHealthPost mPost3 = new MentalHealthPost(user5, "Uplifting", mWorkout3, new ArrayList<Comment>(), "I could feel my stress melt away.....", 2);
+//        MentalHealthPost mPost4 = new MentalHealthPost(user8, "Beachside Yoga", mWorkout2, new ArrayList<Comment>(), "Playing relaxing wave sounds really works well with this!", 0);
+//        MentalHealthPost mPost5 = new MentalHealthPost(user0, "Hawaiian Yoga ", mWorkout4, new ArrayList<Comment>(), "You need to try!", 5);
 
+        Post mPost1 = new Post("Soothing Meditation", user7, mWorkout1, new ArrayList<Comment>(), 3);
+        Post mPost2 = new Post("Soothing Meditation", user7, mWorkout2, new ArrayList<Comment>(), 4);
+        Post mPost3 = new Post("Soothing Meditation", user7, mWorkout3, new ArrayList<Comment>(), 0);
+        Post mPost4 = new Post("Soothing Meditation", user7, mWorkout4, new ArrayList<Comment>(), 2);
+        Post mPost5 = new Post("Soothing Meditation", user7, mWorkout5, new ArrayList<Comment>(), 1);
+       
+        
+        
         mPost1.addComment(new Comment("I def need to try this!", user3));
         mPost4.addComment(new Comment("This makes my 9-5 bearable...THANK YOU!!!!", user4));
 
@@ -227,6 +229,6 @@ public class Feeds {
 
     // FOR TERMINAL TESTING
 
-  
+
 
 }
