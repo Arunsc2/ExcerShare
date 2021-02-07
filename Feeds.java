@@ -235,7 +235,7 @@ public class Feeds {
         mentalHealthFeed.add(mPost5);
     }
 
-    public ArrayList<Post> searchByKeyword(String keyword) {
+    public static ArrayList<Post> searchByKeyword(String keyword) {
         keyword = keyword.toLowerCase();
         ArrayList<Post> result = new ArrayList<>();
         for(Post p : feed) {
@@ -245,8 +245,8 @@ public class Feeds {
         }
         return result;
     }
-    
-    public ArrayList<Post> searchMentalHealthPost(String keyword) {
+
+    public static ArrayList<Post> searchMentalHealthPost(String keyword) {
         keyword = keyword.toLowerCase();
         ArrayList<Post> result = new ArrayList<>();
         for(Post p : mentalHealthFeed) {
@@ -255,6 +255,32 @@ public class Feeds {
             }
         }
         return result;
+    }
+    
+    public static int likePost(String name, String user, String description, boolean like) {
+        for(Post p : feed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                if(like) {
+                    p.like();
+                } else {
+                    p.unLike();
+                }
+                return 1;
+            }
+        }
+        
+        for(Post p : mentalHealthFeed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                if(like) {
+                    p.like();
+                } else {
+                    p.unLike();
+                }
+                return 1;
+            }
+        }
+        
+        return -1;
     }
 
     // FOR TERMINAL TESTING
