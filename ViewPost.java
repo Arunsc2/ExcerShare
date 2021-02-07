@@ -1,4 +1,10 @@
-package com.example.hiworld;
+package com.example.exershare;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,15 +20,35 @@ import org.w3c.dom.Text;
 public class ViewPost extends AppCompatActivity {
 
     static boolean alreadyLiked = false;
-    int numLikes = 17;
+    static int numLikes;
+
+    TextView postTitle;
+    TextView postAuthor;
+    TextView workoutDesc;
     TextView displayLikes;
     ImageView likeButton;
+    TextView numComments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpost);
         getSupportActionBar().hide();
+
+        postTitle = findViewById(R.id.post_name);
+        postTitle.setText(getIntent().getStringExtra("postTitle"));
+
+        postAuthor = findViewById(R.id.post_user);
+        postAuthor.setText(getIntent().getStringExtra("postUser"));
+
+        workoutDesc = findViewById(R.id.workout_text);
+        workoutDesc.setText(getIntent().getStringExtra("postDesc"));
+
+        displayLikes = findViewById(R.id.post_likes);
+        displayLikes.setText(getIntent().getStringExtra("postLikes"));
+
+        numComments = findViewById(R.id.num_comments);
+        numComments.setText(getIntent().getStringExtra("numComments"));
     }
 
     public void increment(View view) {
