@@ -1,4 +1,5 @@
-package com.example.hiworld;
+package com.company;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class Feeds {
         generateSavedPostFeed();
     }
 
-    public static void generateSavedPostFeed() {
+    public void generateSavedPostFeed() {
         ArrayList<Post> sPosts = new ArrayList<>();
         for(Post p : feed) {
             if(p.isSaved()) {
@@ -45,7 +46,7 @@ public class Feeds {
         savedPosts = sPosts;
     }
 
-    public static void refresh() {
+    public void refresh() {
         generateMyPosts();
         generateSavedPostFeed();
     }
@@ -59,25 +60,25 @@ public class Feeds {
         this.feed = feed;
     }
 
-    public static void addPostToFeed(Post post) {
+    public void addPostToFeed(Post post) {
         feed.add(0, post);
         refresh();
     }
 
-    public static void addMentalHealthPostToFeed(Post post) {
-        mentalHealthFeed.add(0, post);
-        refresh();
+    public void addMentalHealthPostToFeed(Post post) {
+        mentalHealthFeed.add(post);
+        generateMyPosts();
     }
 
     public void savePost(Post post) {
         savedPosts.add(post);
     }
 
-    public static ArrayList<Post> getMentalHealthFeed() {
+    public ArrayList<Post> getMentalHealthFeed() {
         return mentalHealthFeed;
     }
 
-    public static void generateMyPosts() {
+    public void generateMyPosts() {
         ArrayList<Post> temp = new ArrayList<Post>();
         int totalLikes = 0;
         for(Post p : feed) {
@@ -233,6 +234,23 @@ public class Feeds {
         mentalHealthFeed.add(mPost3);
         mentalHealthFeed.add(mPost4);
         mentalHealthFeed.add(mPost5);
+    }
+
+    public ArrayList<Post> searchByKeyword(String keyword) {
+        ArrayList<Post> result = new ArrayList<>();
+        for(Post p : feed) {
+            if(p.getDescription().contains(keyword) || p.getName().contains(keyword) || p.getUser().contains(keyword)) {
+                result.add(p); 
+            }
+        }
+        
+        for(Post p : mentalHealthFeed) {
+            if(p.getDescription().contains(keyword) || p.getName().contains(keyword) || p.getUser().contains(keyword)) {
+                result.add(p);
+            }
+        }
+        
+        return result;
     }
 
     // FOR TERMINAL TESTING
