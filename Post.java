@@ -1,4 +1,4 @@
-package com.example.hiworld;
+package com.company;
 
 import java.util.ArrayList;
 
@@ -99,6 +99,10 @@ public class Post {
 
     public void like() {
         this.likes++;
+    }
+
+    public void unLike() {
+        this.likes--;
     }
 
     public String getName() {
