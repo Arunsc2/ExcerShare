@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
-public class Post extends AppCompatActivity {
+public class ViewPost extends AppCompatActivity {
 
     int numLikes = 17;
     TextView displayLikes;
