@@ -1,5 +1,4 @@
-package com.example.exershare;
-
+package com.company;
 public class Comment {
     private String comment;
     private String name;
@@ -7,6 +6,11 @@ public class Comment {
     public Comment(String comment, String name) {
         this.comment = comment;
         this.name = name;
+    }
+    
+    public Comment() {
+        this.comment = "";
+        this.name = "";
     }
 
     public String getName() {
