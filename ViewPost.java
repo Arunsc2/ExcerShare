@@ -12,6 +12,7 @@ import org.w3c.dom.Text;
 
 public class ViewPost extends AppCompatActivity {
 
+    static boolean alreadyLiked = false;
     int numLikes = 17;
     TextView displayLikes;
     ImageView likeButton;
@@ -24,13 +25,16 @@ public class ViewPost extends AppCompatActivity {
     }
 
     public void increment(View view) {
-        displayLikes = findViewById(R.id.post_likes);
-        likeButton = findViewById(R.id.like_button);
+        if(!alreadyLiked) {
+            displayLikes = findViewById(R.id.post_likes);
+            likeButton = findViewById(R.id.like_button);
 
-        numLikes++;
-        displayLikes.setText(Integer.toString(numLikes));
+            numLikes++;
+            displayLikes.setText(Integer.toString(numLikes));
+
+            alreadyLiked = true;
+        }
     }
-
 
 
 
