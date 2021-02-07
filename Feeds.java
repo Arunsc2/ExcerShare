@@ -170,8 +170,7 @@ public class Feeds {
         String mWorkout3 = mentalHealth3 + "\n" + mentalHealth5;
         String mWorkout4 = mentalHealth4  + "\n" + mentalHealth6;
         String mWorkout5 = mentalHealth5 + "\n" + mentalHealth4;
-
-
+        
         String user0 = "sergio_he";
         String user1 = "Wesley62";
         String user2 = "Ryan_M";
@@ -237,19 +236,20 @@ public class Feeds {
     }
 
     public ArrayList<Post> searchByKeyword(String keyword) {
+        keyword = keyword.toLowerCase();
         ArrayList<Post> result = new ArrayList<>();
         for(Post p : feed) {
-            if(p.getDescription().contains(keyword) || p.getName().contains(keyword) || p.getUser().contains(keyword)) {
-                result.add(p); 
-            }
-        }
-        
-        for(Post p : mentalHealthFeed) {
-            if(p.getDescription().contains(keyword) || p.getName().contains(keyword) || p.getUser().contains(keyword)) {
+            if(p.getDescription().toLowerCase().contains(keyword) || p.getName().toLowerCase().contains(keyword) || p.getUser().toLowerCase().contains(keyword)) {
                 result.add(p);
             }
         }
-        
+
+        for(Post p : mentalHealthFeed) {
+            if(p.getDescription().toLowerCase().contains(keyword) || p.getName().toLowerCase().contains(keyword) || p.getUser().toLowerCase().contains(keyword)) {
+                result.add(p);
+            }
+        }
+
         return result;
     }
 
