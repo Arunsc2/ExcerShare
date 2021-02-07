@@ -227,22 +227,6 @@ public class Feeds {
 
     // FOR TERMINAL TESTING
 
-    public void printFeed() {
-        for(Post p : feed) {
-            p.printPost();
-            System.out.println();
-            System.out.println("__________________________________________________");
-            System.out.println();
-        }
-    }
-
-    public void printMentalHealthFeed() {
-        for(MentalHealthPost p : mentalHealthFeed) {
-            p.printPost();
-            System.out.println();
-            System.out.println("__________________________________________________");
-            System.out.println();
-        }
-    }
+  
 
 }
