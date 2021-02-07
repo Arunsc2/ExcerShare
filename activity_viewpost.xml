@@ -25,22 +25,23 @@
 
 
                 <TextView
+                    android:id="@+id/post_name"
                     android:layout_width="match_parent"
                     android:layout_height="160px"
-                    android:text="Cable Push Day"
                     android:textColor="#000000"
                     android:textSize="120px"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/post_user"
                     android:layout_width="match_parent"
                     android:layout_height="78px"
-                    android:text="\@matthew_white"
                     android:textColor="#222222"
                     android:textSize="56px"
                     android:textStyle="normal" />
 
                 <TextView
+                    android:id="@+id/workout_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -92,6 +93,7 @@
 
                         </ImageView>
                         <TextView
+                            android:id="@+id/num_comments"
                             android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text = "4"
