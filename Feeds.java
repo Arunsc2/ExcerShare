@@ -73,7 +73,7 @@ public class Feeds {
     public void savePost(Object post) {
         savedPosts.add(post);
     }
-    
+
     public ArrayList<Post> getMentalHealthFeed() {
         return mentalHealthFeed;
     }
@@ -159,14 +159,14 @@ public class Feeds {
         String mentalHealth4 = "Vrikshasana";
         String mentalHealth5 = "Balasana";
         String mentalHealth6 = "Adho mukha svanasana";
-        
+
         String mWorkout1 = mentalHealth1 + "\n" + mentalHealth3;
         String mWorkout2 = mentalHealth2 + "\n" + mentalHealth4;
         String mWorkout3 = mentalHealth3 + "\n" + mentalHealth5;
         String mWorkout4 = mentalHealth4  + "\n" + mentalHealth6;
         String mWorkout5 = mentalHealth5 + "\n" + mentalHealth4;
 
-        
+
         String user0 = "sergio_he";
         String user1 = "Wesley62";
         String user2 = "Ryan_M";
@@ -210,13 +210,13 @@ public class Feeds {
 //        MentalHealthPost mPost5 = new MentalHealthPost(user0, "Hawaiian Yoga ", mWorkout4, new ArrayList<Comment>(), "You need to try!", 5);
 
         Post mPost1 = new Post("Soothing Meditation", user7, mWorkout1, new ArrayList<Comment>(), 3);
-        Post mPost2 = new Post("Soothing Meditation", user7, mWorkout2, new ArrayList<Comment>(), 4);
-        Post mPost3 = new Post("Soothing Meditation", user7, mWorkout3, new ArrayList<Comment>(), 0);
-        Post mPost4 = new Post("Soothing Meditation", user7, mWorkout4, new ArrayList<Comment>(), 2);
-        Post mPost5 = new Post("Soothing Meditation", user7, mWorkout5, new ArrayList<Comment>(), 1);
-       
-        
-        
+        Post mPost2 = new Post("Morning Sunrise", user7, mWorkout2, new ArrayList<Comment>(), 4);
+        Post mPost3 = new Post("Uplifting", user7, mWorkout3, new ArrayList<Comment>(), 0);
+        Post mPost4 = new Post("Beachside Yoga", user7, mWorkout4, new ArrayList<Comment>(), 2);
+        Post mPost5 = new Post("Hawaiian Yoga", user7, mWorkout5, new ArrayList<Comment>(), 1);
+
+
+
         mPost1.addComment(new Comment("I def need to try this!", user3));
         mPost4.addComment(new Comment("This makes my 9-5 bearable...THANK YOU!!!!", user4));
 
