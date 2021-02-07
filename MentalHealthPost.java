@@ -1,4 +1,4 @@
-package com.example.exershare;
+package com.company;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ public class MentalHealthPost {
     private ArrayList<Comment> comments;
     private String description;
     private int likes;
+    private boolean isSaved;
 
     public MentalHealthPost(String name, String user, ArrayList<String> exercises, ArrayList<Comment> comments, String description, int likes) {
         this.name = name;
@@ -17,6 +18,7 @@ public class MentalHealthPost {
         this.comments = comments;
         this.description = description;
         this.likes = likes;
+        isSaved = false;
     }
 
     public MentalHealthPost(String user) {
@@ -26,6 +28,7 @@ public class MentalHealthPost {
         this.comments = new ArrayList<>();
         this.description = "";
         this.likes = 0;
+        isSaved = false;
     }
 
     public MentalHealthPost() {
@@ -35,6 +38,26 @@ public class MentalHealthPost {
         this.comments = new ArrayList<>();
         this.description = "";
         this.likes = 0;
+        isSaved = false;
+    }
+
+    public MentalHealthPost(String name, String user, ArrayList<String> exercises, ArrayList<Comment> comments,
+                            String description, int likes, boolean isSaved) {
+        this.name = name;
+        this.user = user;
+        this.exercises = exercises;
+        this.comments = comments;
+        this.description = description;
+        this.likes = likes;
+        this.isSaved = isSaved;
+    }
+
+    public void save() {
+        isSaved = true;
+    }
+
+    public boolean isSaved() {
+        return isSaved;
     }
 
     public String getUser() {
@@ -95,5 +118,23 @@ public class MentalHealthPost {
 
     public void addExercise(String exercise) {
         this.exercises.add(exercise);
+    }
+
+    public void printPost() {
+        System.out.println("User: " + user);
+        System.out.println("Workout Name: " + name);
+        System.out.println();
+        for(String s : exercises) {
+            System.out.println(s);
+        }
+        System.out.println();
+        System.out.println(description);
+        System.out.println("Likes: " + likes + "                             Comments:");
+
+        if(comments.size() != 0) {
+            for(Comment c : comments) {
+                System.out.println(c.getName() + ": " + c.getComment());
+            }
+        }
     }
 }
