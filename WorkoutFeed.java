@@ -44,20 +44,11 @@ public class WorkoutFeed extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent1 = new Intent(myActivity, ViewPost.class);
 
-                    TextView postName = findViewById(R.id.post_name);
-                    postName.setText(p.getName());
-
-                    TextView postUser = findViewById(R.id.post_user);
-                    postUser.setText(p.getUser());
-
-                    TextView workoutDesc = findViewById(R.id.workout_text);
-                    workoutDesc.setText(p.getDescription());
-
-                    TextView postLikes = findViewById(R.id.post_likes);
-                    postLikes.setText(p.getLikes());
-
-                    TextView numComments = findViewById(R.id.num_comments);
-                    postLikes.setText(p.getComments().size());
+                    intent1.putExtra("postTitle", p.getName());
+                    intent1.putExtra("postUser", p.getUser());
+                    intent1.putExtra("postDesc", p.getDescription());
+                    intent1.putExtra("postLikes", p.getLikes());
+                    intent1.putExtra("numComments", p.getComments().size());
 
                     startActivity(intent1);
                     finish();
