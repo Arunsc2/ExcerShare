@@ -1,4 +1,4 @@
-package com.example.exershare;
+package com.company;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ public class Post {
     private ArrayList<Comment> comments;
     private String description;
     private int likes;
+    private boolean isSaved;
 
     public Post(String name, String user, ArrayList<Exercise> exercises, ArrayList<Comment> comments, String description, int likes) {
         this.name = name;
@@ -17,6 +18,26 @@ public class Post {
         this.comments = comments;
         this.description = description;
         this.likes = likes;
+        this.isSaved = false;
+    }
+
+    public Post(String name, String user, String description, ArrayList<Comment> comments, int likes) {
+        this.name = name;
+        this.user = user;
+        this.comments = comments;
+        this.description = description;
+        this.likes = likes;
+        this.isSaved = false;
+    }
+
+    public Post(String name, String user, ArrayList<Comment> comments,
+                String description, int likes, boolean isSaved) {
+        this.name = name;
+        this.user = user;
+        this.comments = comments;
+        this.description = description;
+        this.likes = likes;
+        this.isSaved = isSaved;
     }
 
     public Post(String user) {
@@ -26,6 +47,7 @@ public class Post {
         this.comments = new ArrayList<>();
         this.description = "";
         this.likes = 0;
+        this.isSaved = false;
     }
 
     public Post() {
@@ -35,10 +57,19 @@ public class Post {
         this.comments = new ArrayList<>();
         this.description = "";
         this.likes = 0;
+        this.isSaved = false;
     }
 
     public String getUser() {
         return user;
+    }
+
+    public void save() {
+        isSaved = true;
+    }
+
+    public boolean isSaved() {
+        return isSaved;
     }
 
     public void setUser(String user) {
