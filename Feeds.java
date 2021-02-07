@@ -9,9 +9,9 @@ public class Feeds {
 
     private static ArrayList<Post> mentalHealthFeed;
 
-    private static ArrayList<Object> savedPosts;
+    private static ArrayList<Post> savedPosts;
 
-    private static ArrayList<Object> myPosts;
+    private static ArrayList<Post> myPosts;
 
     private static int numberOfLikes;
 
@@ -30,7 +30,7 @@ public class Feeds {
     }
 
     public void generateSavedPostFeed() {
-        ArrayList<Object> sPosts = new ArrayList<>();
+        ArrayList<Post> sPosts = new ArrayList<>();
         for(Post p : feed) {
             if(p.isSaved()) {
                 sPosts.add(p);
@@ -70,7 +70,7 @@ public class Feeds {
         generateMyPosts();
     }
 
-    public void savePost(Object post) {
+    public void savePost(Post post) {
         savedPosts.add(post);
     }
 
@@ -79,7 +79,7 @@ public class Feeds {
     }
 
     public void generateMyPosts() {
-        ArrayList<Object> temp = new ArrayList<Object>();
+        ArrayList<Post> temp = new ArrayList<Post>();
         int totalLikes = 0;
         for(Post p : feed) {
             if(p.getUser().equals("sergio_he")) {
@@ -99,7 +99,7 @@ public class Feeds {
         numberOfLikes = totalLikes;
     }
 
-    public ArrayList<Object> getMyPosts() {
+    public ArrayList<Post> getMyPosts() {
         return myPosts;
     }
 
@@ -141,6 +141,11 @@ public class Feeds {
 
         return userPost;
     }
+
+    public ArrayList<Post> getSavedPosts() {
+        return savedPosts;
+    }
+
 
 
     public void renderAllPosts() {
