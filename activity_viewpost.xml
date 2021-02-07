@@ -45,12 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="25dp"
-                    android:text="High Cable Flys - 4 x 12
-                \nLow Cable Flys - 4 x 12
-\nTricep Pulldown - 3 x 15
-\nTricep Extension - 3 x 15
-\nShoulder Press - 4 x 12"/>
+                    android:textSize="25dp"/>
 
                 <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
@@ -80,7 +75,6 @@
                             android:id="@+id/post_likes"
                             android:layout_width="60dp"
                             android:layout_height="match_parent"
-                            android:text="17"
                             android:textSize = "25dp"
                             android:textColor = "#CEB888">
 
@@ -96,7 +90,6 @@
                             android:id="@+id/num_comments"
                             android:layout_width="60dp"
                             android:layout_height="match_parent"
-                            android:text = "4"
                             android:textSize = "25dp"
                             android:textColor = "#CEB888">
 
