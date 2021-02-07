@@ -1,4 +1,4 @@
-package com.example.exershare;
+package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +26,29 @@ public class Feeds {
         profilePic = new HashMap<>();
         renderAllPosts();
         generateMyPosts();
+        generateSavedPostFeed();
+    }
+
+    public void generateSavedPostFeed() {
+        ArrayList<Object> sPosts = new ArrayList<>();
+        for(Post p : feed) {
+            if(p.isSaved()) {
+                sPosts.add(p);
+            }
+        }
+
+        for(MentalHealthPost p : mentalHealthFeed) {
+            if(p.isSaved()) {
+                sPosts.add(p);
+            }
+        }
+
+        savedPosts = sPosts;
+    }
+
+    public void refresh() {
+        generateMyPosts();
+        generateSavedPostFeed();
     }
 
 
@@ -38,7 +61,7 @@ public class Feeds {
     }
 
     public void addPostToFeed(Post post) {
-        feed.add(post);
+        feed.add(0, post);
         generateMyPosts();
     }
 
@@ -116,46 +139,15 @@ public class Feeds {
     }
 
 
-    public static void renderAllPosts() {
-        Exercise shoulderPress = new Exercise("Shoulder Press", 4, 10, "70lb");
-        Exercise arnoldShoulderPress = new Exercise("Arnold Shoulder Press", 4, 10, "25lb");
-        Exercise lateralRaises = new Exercise("Lateral Raises", 4, 8, "15lb");
+    public void renderAllPosts() {
 
-        ArrayList<Exercise> shoulderDay = new ArrayList<>();
-        shoulderDay.add(shoulderPress);
-        shoulderDay.add(arnoldShoulderPress);
-        shoulderDay.add(lateralRaises);
-
-        Exercise benchPress = new Exercise("Bench Press", 4, 8, "135lb");
-        Exercise chestFly = new Exercise("Chest Fly", 5, 8, "25lb");
-        Exercise inclineDumbellPress = new Exercise("Incline Dumbell Press", 4, 10, "30lb");
-        Exercise declineChestPress = new Exercise("Decline Chest Press", 4, 10, "30lb");
-
-        ArrayList<Exercise> chestDay = new ArrayList<>();
-        chestDay.add(benchPress);
-        chestDay.add(chestFly);
-        chestDay.add(inclineDumbellPress);
-        chestDay.add(declineChestPress);
-
-        Exercise backSquats = new Exercise("Back Squats", 5, 10, "135lb");
-        Exercise frontSquats = new Exercise("Front Squats", 5, 10, "95lb");
-        Exercise calfRaises = new Exercise("Calf Raises", 4, 20, "135lb");
-
-        ArrayList<Exercise> legDay = new ArrayList<>();
-        legDay.add(backSquats);
-        legDay.add(frontSquats);
-        legDay.add(calfRaises);
-
-        Exercise bicepCurl = new Exercise("Bicep Curl", 5, 10, "25lb");
-        Exercise tricepExtension = new Exercise("Tricep Extension", 4, 10, "40lb");
-        Exercise hammerCurls = new Exercise("Hammer Curls", 4, 10, "25lb");
-        Exercise skullCrushers = new Exercise("Skull Crushers", 4, 10, "15lb");
-
-        ArrayList<Exercise> armDay = new ArrayList<>();
-        armDay.add(bicepCurl);
-        armDay.add(tricepExtension);
-        armDay.add(hammerCurls);
-        armDay.add(skullCrushers);
+        String arms = "- Bicep Curl 5x10 25lb \n -Tricep Extension 4x10 40lb \n - Hammer Curls 4x10 25lb \n Skull " +
+                "Crushers 4x10 15lb";
+        String legs = "- Back Squat 5x10 135lb \n - Front Squats 5x10 95ln \n - Calf Raises 135lb";
+        String chests = "- Bench Press 4x8 135lb \n - Chest Fly 4x10 25lb \n - Incline Dumbell Press 4x10 30lb \n " +
+                "- Decline Chest Press 3x10 30lb";
+        String shoulders = "- Shoulder Press 4x10 70lb \n - Arnold Shoulder Press 4x10 25lb \n - Lateral Raises 4x8 " +
+                "15lb";
 
         String mentalHealth1 = "Deep breaths and Conscious Breaths";
         String mentalHealth2 = "Meditate at Desk";
@@ -191,30 +183,31 @@ public class Feeds {
         String user7 = "Soph2";
         String user8 = "Adot2";
 
-        Post post1 = new Post("Arm Day", user1, armDay, new ArrayList<Comment>(), "I want to get big biceps", 3);
-        Post post2 = new Post("Chest Day", user2, chestDay, new ArrayList<Comment>(), "Getting gains!", 4);
-        Post post3 = new Post("Leg Day", user3, legDay, new ArrayList<Comment>(), "At 6 am wooooo", 1);
-        Post post0 = new Post("Leg Day", user0, legDay, new ArrayList<Comment>(), "Im really sore", 5);
-        Post post4 = new Post("Shoulder Day", user4, shoulderDay, new ArrayList<Comment>(), "This is my first time on this app :)", 0);
-        Post post5 = new Post("Arm Day", user5, armDay, new ArrayList<Comment>(), "This is a really good workout", 3);
-        Post post6 = new Post("Leg Day", user8, legDay, new ArrayList<Comment>(), "I want to get thunder thighs!", 2);
-        Post post7 = new Post("Chest Day", user7, chestDay, new ArrayList<Comment>(), "", 2);
-        Post post9 = new Post("Shoulder Day", user6, shoulderDay, new ArrayList<Comment>(), "Was pretty stress relieving", 5);
-        Post post10 = new Post("Arm Day", user6, armDay, new ArrayList<Comment>(), "Never skip arm day :)", 3);
+        Post post1 = new Post("Arm Day", user1, arms, new ArrayList<Comment>(), 3);
+        Post post2 = new Post("Chest Day", user2, chests, new ArrayList<Comment>(), 4);
+        Post post3 = new Post("Leg Day", user3, legs, new ArrayList<Comment>(), 1);
+        Post post0 = new Post("Leg Day", user0, legs, new ArrayList<Comment>(), 5);
+        Post post4 = new Post("Shoulder Day", user4, shoulders, new ArrayList<Comment>(), 0);
+        Post post5 = new Post("Arm Day", user5, arms, new ArrayList<Comment>(), 3);
+        Post post6 = new Post("Leg Day", user8, legs, new ArrayList<Comment>(), 2);
+        Post post7 = new Post("Chest Day", user7, chests, new ArrayList<Comment>(), 2);
+        Post post9 = new Post("Shoulder Day", user6, shoulders, new ArrayList<Comment>(), 5);
+        Post post10 = new Post("Arm Day", user6, arms, new ArrayList<Comment>(), 3);
 
         post1.addComment(new Comment("Woah that looks like a great workout", user2));
         post4.addComment(new Comment("Make sure you use correct form!", user5));
 
-        feed.add(post1);
-        feed.add(post2);
-        feed.add(post3);
-        feed.add(post4);
-        feed.add(post5);
-        feed.add(post6);
-        feed.add(post7);
-        feed.add(post0);
-        feed.add(post9);
-        feed.add(post10);
+        addPostToFeed(post1);
+        addPostToFeed(post2);
+        addPostToFeed(post3);
+        addPostToFeed(post4);
+        addPostToFeed(post5);
+        addPostToFeed(post6);
+        addPostToFeed(post7);
+        addPostToFeed(post0);
+        addPostToFeed(post9);
+        addPostToFeed(post10);
+
 
         MentalHealthPost mPost1 = new MentalHealthPost(user7, "Soothing meditation", mWorkout1, new ArrayList<Comment>(), "I was very relaxed after this.", 3);
         MentalHealthPost mPost2 = new MentalHealthPost(user4, "Morning Sunrise", mWorkout2, new ArrayList<Comment>(), "This is great for a morning workout!", 1);
@@ -236,6 +229,15 @@ public class Feeds {
 
     public void printFeed() {
         for(Post p : feed) {
+            p.printPost();
+            System.out.println();
+            System.out.println("__________________________________________________");
+            System.out.println();
+        }
+    }
+
+    public void printMentalHealthFeed() {
+        for(MentalHealthPost p : mentalHealthFeed) {
             p.printPost();
             System.out.println();
             System.out.println("__________________________________________________");
