@@ -145,6 +145,22 @@ public class Feeds {
     public ArrayList<Post> getSavedPosts() {
         return savedPosts;
     }
+    
+    public int saveThisPost(String name, String user, String description) {
+        for(Post p : feed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                savePost(p);
+                return 0;
+            }
+        }
+
+        for(Post p : mentalHealthFeed) {
+            if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
+                savePost(p);
+                return 0;
+            }
+        }
+    }
 
 
 
@@ -197,6 +213,9 @@ public class Feeds {
         post1.save();
 
         post1.addComment(new Comment("Woah that looks like a great workout", user2));
+        post1.addComment(new Comment("I need to try this, this will make my biceps burn", user3));
+        post1.addComment(new Comment("You should try inclined bicep curl!", user4));
+        post1.addComment(new Comment("I can do 35 pounds on bicep curl:)", user5));
         post4.addComment(new Comment("Make sure you use correct form!", user5));
 
         addPostToFeed(post1);
@@ -256,7 +275,7 @@ public class Feeds {
         }
         return result;
     }
-    
+
     public static int likePost(String name, String user, String description, boolean like) {
         for(Post p : feed) {
             if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
@@ -268,7 +287,7 @@ public class Feeds {
                 return 1;
             }
         }
-        
+
         for(Post p : mentalHealthFeed) {
             if(p.getName().equals(name) && p.getUser().equals(user) && p.getDescription().equals(description)) {
                 if(like) {
@@ -279,7 +298,7 @@ public class Feeds {
                 return 1;
             }
         }
-        
+
         return -1;
     }
 
