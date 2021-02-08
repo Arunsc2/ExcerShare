@@ -1,4 +1,4 @@
-#ExerShare
+# ExerShare
 ## Inspiration
 During quarantine, many people, including us, utilized the extra time to improve themselves, whether it be physically and mentally. For around a year now, we have developed an interest in working out, as it provides a healthy outlet for us to escape the stress of our college life and the pandemic, while also allowing us to improve our own self images. We felt that creating a social media to allow people to share workouts with each other would be really beneficial for us, as well as the many others who want to get into working out, but do not necessarily know where to start. Another reason for us to develop this app is that we realized that many people also felt a decline in their mental health. As result, ExerShare offers a platform for people to share mental health workouts. Through ExerShare, we want to share our interest in working out and mental health with the world.
 
