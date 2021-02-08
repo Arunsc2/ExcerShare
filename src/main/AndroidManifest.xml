@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hiworld">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/exershare_logo"
+        android:label="ExerShare"
+        android:roundIcon="@drawable/exershare_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HiWorld">
+        <activity android:name=".WorkoutFeed">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="ExerShare" android:name=".MentalHealthFeed"/>
+        <activity android:label="ExerShare" android:name=".Profile"/>
+        <activity android:label="ExerShare" android:name=".AddPost"/>
+        <activity android:label="ExerShare" android:name=".SavedPosts"/>
+        <activity android:label="ExerShare" android:name=".ViewPost"/>
+    </application>
+
+</manifest>
